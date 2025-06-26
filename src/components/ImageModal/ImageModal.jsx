@@ -12,7 +12,10 @@ export default function ImageModal({ isOpen, modalFoto, closeModal }) {
   //   }
   function cutDescription() {
     const { description } = modalFoto;
-    return description ? description.slice(0, 55) : 'there is no description'
+
+    return description ? (description.length > 55
+      ? `${description.slice(0, 55)}...`
+      : description.slice(0, 55)) : 'there is no description';
   }
   const desc = cutDescription()
 
